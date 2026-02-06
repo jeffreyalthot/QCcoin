@@ -1,0 +1,2 @@
+# QCcoin
+blockchain QCcoin
