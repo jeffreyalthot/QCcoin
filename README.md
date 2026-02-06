@@ -1,33 +1,33 @@
-Bitcoin Core
+Novacoin Core
 =============
 
 Setup
 ---------------------
-Bitcoin Core is the original Bitcoin client and it builds the backbone of the network. It downloads and, by default, stores the entire history of Bitcoin transactions, which requires several hundred gigabytes or more of disk space. Depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to several days or more.
+Novacoin Core is a fork of Bitcoin Core tailored for the Novacoin network. It downloads and, by default, stores the entire history of Novacoin transactions, which requires several hundred gigabytes or more of disk space. Depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to several days or more.
 
-To download Bitcoin Core, visit [bitcoincore.org](https://bitcoincore.org/en/download/).
+To download Novacoin Core, visit the project's distribution page or release artifacts.
 
 Running
 ---------------------
-The following are some helpful notes on how to run Bitcoin Core on your native platform.
+The following are some helpful notes on how to run Novacoin Core on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- `bin/bitcoin-qt` (GUI) or
-- `bin/bitcoind` (headless)
-- `bin/bitcoin` (wrapper command)
+- `bin/novacoin-qt` (GUI) or
+- `bin/novacoind` (headless)
+- `bin/novacoin` (wrapper command)
 
-The `bitcoin` command supports subcommands like `bitcoin gui`, `bitcoin node`, and `bitcoin rpc` exposing different functionality. Subcommands can be listed with `bitcoin help`.
+The `novacoin` command supports subcommands like `novacoin gui`, `novacoin node`, and `novacoin rpc` exposing different functionality. Subcommands can be listed with `novacoin help`.
 
 ### Windows
 
-Unpack the files into a directory, and then run bitcoin-qt.exe.
+Unpack the files into a directory, and then run novacoin-qt.exe.
 
 ### macOS
 
-Drag Bitcoin Core to your applications folder, and then run Bitcoin Core.
+Drag Novacoin Core to your applications folder, and then run Novacoin Core.
 
 ### Need Help?
 
@@ -39,7 +39,7 @@ for help and more information.
 
 Building
 ---------------------
-The following are developer notes on how to build Bitcoin Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build Novacoin Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [Dependencies](doc/dependencies.md)
 - [macOS Build Notes](doc/build-osx.md)
@@ -51,7 +51,7 @@ The following are developer notes on how to build Bitcoin Core on your native pl
 
 Development
 ---------------------
-The Bitcoin repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The Novacoin Core repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](doc/developer-notes.md)
 - [Productivity Notes](doc/productivity.md)
