@@ -140,24 +140,19 @@ public:
         m_assumed_blockchain_size = 810;
         m_assumed_chain_state_size = 14;
 
-        genesis = CreateGenesisBlock(1231006505, 2083236893, 0x1d00ffff, 1, 50 * COIN);
+        const char* pszTimestamp = "Novacoin genesis 2025-01-01";
+        const CScript genesisOutputScript = CScript() << "04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f"_hex << OP_CHECKSIG;
+        genesis = CreateGenesisBlock(pszTimestamp, genesisOutputScript, 1735689600, 0, 0x1d00ffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256{"000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"});
-        assert(genesis.hashMerkleRoot == uint256{"4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b"});
+        assert(consensus.hashGenesisBlock == uint256{"bbbf9c898f19e0e318584226bea7e002231ec8e6f0be05f83a841546b55f0748"});
+        assert(genesis.hashMerkleRoot == uint256{"3ff3711a90c9f75549fc648700367564a3e1c7f025324bc26d8d370fcb75112d"});
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
         // This is fine at runtime as we'll fall back to using them as an addrfetch if they don't support the
         // service bits we want, but we should get them updated to support all service bits wanted by any
         // release ASAP to avoid it where possible.
-        vSeeds.emplace_back("seed.bitcoin.sipa.be."); // Pieter Wuille, only supports x1, x5, x9, and xd
-        vSeeds.emplace_back("dnsseed.bluematt.me."); // Matt Corallo, only supports x9
-        vSeeds.emplace_back("seed.bitcoin.jonasschnelli.ch."); // Jonas Schnelli, only supports x1, x5, x9, and xd
-        vSeeds.emplace_back("seed.btc.petertodd.net."); // Peter Todd, only supports x1, x5, x9, and xd
-        vSeeds.emplace_back("seed.bitcoin.sprovoost.nl."); // Sjors Provoost
-        vSeeds.emplace_back("dnsseed.emzy.de."); // Stephan Oeste
-        vSeeds.emplace_back("seed.bitcoin.wiz.biz."); // Jason Maurice
-        vSeeds.emplace_back("seed.mainnet.achownodes.xyz."); // Ava Chow, only supports x1, x5, x9, x49, x809, x849, xd, x400, x404, x408, x448, xc08, xc48, x40c
+        vSeeds.clear();
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,0);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
@@ -167,7 +162,7 @@ public:
 
         bech32_hrp = "bc";
 
-        vFixedSeeds = std::vector<uint8_t>(std::begin(chainparams_seed_main), std::end(chainparams_seed_main));
+        vFixedSeeds.clear();
 
         fDefaultConsistencyChecks = false;
         m_is_mockable_chain = false;
@@ -265,14 +260,8 @@ public:
         assert(consensus.hashGenesisBlock == uint256{"000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943"});
         assert(genesis.hashMerkleRoot == uint256{"4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b"});
 
-        vFixedSeeds.clear();
         vSeeds.clear();
-        // nodes with support for servicebits filtering should be at the top
-        vSeeds.emplace_back("testnet-seed.bitcoin.jonasschnelli.ch.");
-        vSeeds.emplace_back("seed.tbtc.petertodd.net.");
-        vSeeds.emplace_back("seed.testnet.bitcoin.sprovoost.nl.");
-        vSeeds.emplace_back("testnet-seed.bluematt.me."); // Just a static list of stable node(s), only supports x9
-        vSeeds.emplace_back("seed.testnet.achownodes.xyz."); // Ava Chow, only supports x1, x5, x9, x49, x809, x849, xd, x400, x404, x408, x448, xc08, xc48, x40c
+        vFixedSeeds.clear();
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
@@ -281,8 +270,6 @@ public:
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
 
         bech32_hrp = "tb";
-
-        vFixedSeeds = std::vector<uint8_t>(std::begin(chainparams_seed_test), std::end(chainparams_seed_test));
 
         fDefaultConsistencyChecks = false;
         m_is_mockable_chain = false;
@@ -375,11 +362,8 @@ public:
         assert(consensus.hashGenesisBlock == uint256{"00000000da84f2bafbbc53dee25a72ae507ff4914b867c565be350b0da8bf043"});
         assert(genesis.hashMerkleRoot == uint256{"7aa0a7ae1e223414cb807e40cd57e667b718e42aaf9306db9102fe28912b7b4e"});
 
-        vFixedSeeds.clear();
         vSeeds.clear();
-        // nodes with support for servicebits filtering should be at the top
-        vSeeds.emplace_back("seed.testnet4.bitcoin.sprovoost.nl."); // Sjors Provoost
-        vSeeds.emplace_back("seed.testnet4.wiz.biz."); // Jason Maurice
+        vFixedSeeds.clear();
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
@@ -388,8 +372,6 @@ public:
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
 
         bech32_hrp = "tb";
-
-        vFixedSeeds = std::vector<uint8_t>(std::begin(chainparams_seed_testnet4), std::end(chainparams_seed_testnet4));
 
         fDefaultConsistencyChecks = false;
         m_is_mockable_chain = false;
@@ -431,9 +413,6 @@ public:
 
         if (!options.challenge) {
             bin = "512103ad5e0edad18cb1f0fc0d28a3d4f1f3e445640337489abb10404f2d1e086be430210359ef5021964fe22d6f8e05b2463c9540ce96883fe3b278760f048f5189f2e6c452ae"_hex_v_u8;
-            vFixedSeeds = std::vector<uint8_t>(std::begin(chainparams_seed_signet), std::end(chainparams_seed_signet));
-            vSeeds.emplace_back("seed.signet.bitcoin.sprovoost.nl.");
-            vSeeds.emplace_back("seed.signet.achownodes.xyz."); // Ava Chow, only supports x1, x5, x9, x49, x809, x849, xd, x400, x404, x408, x448, xc08, xc48, x40c
 
             consensus.nMinimumChainWork = uint256{"0000000000000000000000000000000000000000000000000000067d328e681a"};
             consensus.defaultAssumeValid = uint256{"000000128586e26813922680309f04e1de713c7542fee86ed908f56368aefe2e"}; // 267665
@@ -623,7 +602,6 @@ public:
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();
-        vSeeds.emplace_back("dummySeed.invalid.");
 
         fDefaultConsistencyChecks = true;
         m_is_mockable_chain = true;
