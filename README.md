@@ -41,30 +41,30 @@ Building
 ---------------------
 The following are developer notes on how to build Bitcoin Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
-- [Dependencies](dependencies.md)
-- [macOS Build Notes](build-osx.md)
-- [Unix Build Notes](build-unix.md)
-- [Windows Build Notes](build-windows-msvc.md)
-- [FreeBSD Build Notes](build-freebsd.md)
-- [OpenBSD Build Notes](build-openbsd.md)
-- [NetBSD Build Notes](build-netbsd.md)
+- [Dependencies](doc/dependencies.md)
+- [macOS Build Notes](doc/build-osx.md)
+- [Unix Build Notes](doc/build-unix.md)
+- [Windows Build Notes](doc/build-windows-msvc.md)
+- [FreeBSD Build Notes](doc/build-freebsd.md)
+- [OpenBSD Build Notes](doc/build-openbsd.md)
+- [NetBSD Build Notes](doc/build-netbsd.md)
 
 Development
 ---------------------
 The Bitcoin repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
-- [Developer Notes](developer-notes.md)
-- [Productivity Notes](productivity.md)
-- [Release Process](release-process.md)
+- [Developer Notes](doc/developer-notes.md)
+- [Productivity Notes](doc/productivity.md)
+- [Release Process](doc/release-process.md)
 - [Source Code Documentation (External Link)](https://doxygen.bitcoincore.org/)
-- [Translation Process](translation_process.md)
-- [Translation Strings Policy](translation_strings_policy.md)
-- [JSON-RPC Interface](JSON-RPC-interface.md)
-- [Unauthenticated REST Interface](REST-interface.md)
-- [BIPS](bips.md)
-- [Dnsseed Policy](dnsseed-policy.md)
-- [Benchmarking](benchmarking.md)
-- [Internal Design Docs](design/)
+- [Translation Process](doc/translation_process.md)
+- [Translation Strings Policy](doc/translation_strings_policy.md)
+- [JSON-RPC Interface](doc/JSON-RPC-interface.md)
+- [Unauthenticated REST Interface](doc/REST-interface.md)
+- [BIPS](doc/bips.md)
+- [Dnsseed Policy](doc/dnsseed-policy.md)
+- [Benchmarking](doc/benchmarking.md)
+- [Internal Design Docs](doc/design/)
 
 ### Resources
 * Discuss on the [BitcoinTalk](https://bitcointalk.org/) forums, in the [Development & Technical Discussion board](https://bitcointalk.org/index.php?board=6.0).
@@ -72,22 +72,22 @@ The Bitcoin repo's [root README](/README.md) contains relevant information on th
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)
-- [bitcoin.conf Configuration File](bitcoin-conf.md)
-- [CJDNS Support](cjdns.md)
-- [Files](files.md)
-- [Fuzz-testing](fuzzing.md)
-- [I2P Support](i2p.md)
-- [Init Scripts (systemd/upstart/openrc)](init.md)
-- [Managing Wallets](managing-wallets.md)
-- [Multisig Tutorial](multisig-tutorial.md)
-- [Offline Signing Tutorial](offline-signing-tutorial.md)
-- [P2P bad ports definition and list](p2p-bad-ports.md)
-- [PSBT support](psbt.md)
-- [Reduce Memory](reduce-memory.md)
-- [Reduce Traffic](reduce-traffic.md)
-- [Tor Support](tor.md)
+- [bitcoin.conf Configuration File](doc/bitcoin-conf.md)
+- [CJDNS Support](doc/cjdns.md)
+- [Files](doc/files.md)
+- [Fuzz-testing](doc/fuzzing.md)
+- [I2P Support](doc/i2p.md)
+- [Init Scripts (systemd/upstart/openrc)](doc/init.md)
+- [Managing Wallets](doc/managing-wallets.md)
+- [Multisig Tutorial](doc/multisig-tutorial.md)
+- [Offline Signing Tutorial](doc/offline-signing-tutorial.md)
+- [P2P bad ports definition and list](doc/p2p-bad-ports.md)
+- [PSBT support](doc/psbt.md)
+- [Reduce Memory](doc/reduce-memory.md)
+- [Reduce Traffic](doc/reduce-traffic.md)
+- [Tor Support](doc/tor.md)
 - [Transaction Relay Policy](policy/README.md)
-- [ZMQ](zmq.md)
+- [ZMQ](doc/zmq.md)
 
 License
 ---------------------
