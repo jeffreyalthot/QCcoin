@@ -1,53 +1,94 @@
-Repository Tools
+Bitcoin Core
+=============
+
+Setup
 ---------------------
+Bitcoin Core is the original Bitcoin client and it builds the backbone of the network. It downloads and, by default, stores the entire history of Bitcoin transactions, which requires several hundred gigabytes or more of disk space. Depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to several days or more.
 
-### [Developer tools](/contrib/devtools) ###
-Specific tools for developers working on this repository.
-Additional tools, including the `github-merge.py` script, are available in the [maintainer-tools](https://github.com/bitcoin-core/bitcoin-maintainer-tools) repository.
+To download Bitcoin Core, visit [bitcoincore.org](https://bitcoincore.org/en/download/).
 
-### [Verify-Commits](/contrib/verify-commits) ###
-Tool to verify that every merge commit was signed by a developer using the `github-merge.py` script.
-
-### [Linearize](/contrib/linearize) ###
-Construct a linear, no-fork, best version of the blockchain.
-
-### [Qos](/contrib/qos) ###
-
-A Linux bash script that will set up traffic control (tc) to limit the outgoing bandwidth for connections to the Bitcoin network. This means one can have an always-on bitcoind instance running, and another local bitcoind/bitcoin-qt instance which connects to this node and receives blocks from it.
-
-### [Seeds](/contrib/seeds) ###
-Utility to generate the pnSeed[] array that is compiled into the client.
-
-Build Tools and Keys
+Running
 ---------------------
+The following are some helpful notes on how to run Bitcoin Core on your native platform.
 
-### Packaging ###
-The [Debian](/contrib/debian) subfolder contains the copyright file.
+### Unix
 
-All other packaging related files can be found in the [bitcoin-core/packaging](https://github.com/bitcoin-core/packaging) repository.
+Unpack the files into a directory and run:
 
-### [MacDeploy](/contrib/macdeploy) ###
-Scripts and notes for Mac builds.
+- `bin/bitcoin-qt` (GUI) or
+- `bin/bitcoind` (headless)
+- `bin/bitcoin` (wrapper command)
 
-Test and Verify Tools
+The `bitcoin` command supports subcommands like `bitcoin gui`, `bitcoin node`, and `bitcoin rpc` exposing different functionality. Subcommands can be listed with `bitcoin help`.
+
+### Windows
+
+Unpack the files into a directory, and then run bitcoin-qt.exe.
+
+### macOS
+
+Drag Bitcoin Core to your applications folder, and then run Bitcoin Core.
+
+### Need Help?
+
+* See the documentation at the [Bitcoin Wiki](https://en.bitcoin.it/wiki/Main_Page)
+for help and more information.
+* Ask for help on [Bitcoin StackExchange](https://bitcoin.stackexchange.com).
+* Ask for help on #bitcoin on Libera Chat. If you don't have an IRC client, you can use [web.libera.chat](https://web.libera.chat/#bitcoin).
+* Ask for help on the [BitcoinTalk](https://bitcointalk.org/) forums, in the [Technical Support board](https://bitcointalk.org/index.php?board=4.0).
+
+Building
 ---------------------
+The following are developer notes on how to build Bitcoin Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
-### [TestGen](/contrib/testgen) ###
-Utilities to generate test vectors for the data-driven Bitcoin tests.
+- [Dependencies](dependencies.md)
+- [macOS Build Notes](build-osx.md)
+- [Unix Build Notes](build-unix.md)
+- [Windows Build Notes](build-windows-msvc.md)
+- [FreeBSD Build Notes](build-freebsd.md)
+- [OpenBSD Build Notes](build-openbsd.md)
+- [NetBSD Build Notes](build-netbsd.md)
 
-### [Verify-Binaries](/contrib/verify-binaries) ###
-This script attempts to download and verify the signature file SHA256SUMS.asc from bitcoin.org.
-
-Command Line Tools
+Development
 ---------------------
+The Bitcoin repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
-### [Completions](/contrib/completions) ###
-Shell completions for bash and fish.
+- [Developer Notes](developer-notes.md)
+- [Productivity Notes](productivity.md)
+- [Release Process](release-process.md)
+- [Source Code Documentation (External Link)](https://doxygen.bitcoincore.org/)
+- [Translation Process](translation_process.md)
+- [Translation Strings Policy](translation_strings_policy.md)
+- [JSON-RPC Interface](JSON-RPC-interface.md)
+- [Unauthenticated REST Interface](REST-interface.md)
+- [BIPS](bips.md)
+- [Dnsseed Policy](dnsseed-policy.md)
+- [Benchmarking](benchmarking.md)
+- [Internal Design Docs](design/)
 
-UTXO Set Tools
---------------
+### Resources
+* Discuss on the [BitcoinTalk](https://bitcointalk.org/) forums, in the [Development & Technical Discussion board](https://bitcointalk.org/index.php?board=6.0).
+* Discuss project-specific development on #bitcoin-core-dev on Libera Chat. If you don't have an IRC client, you can use [web.libera.chat](https://web.libera.chat/#bitcoin-core-dev).
 
-### [UTXO-to-SQLite](/contrib/utxo-tools/utxo_to_sqlite.py) ###
-This script converts a compact-serialized UTXO set (as generated by Bitcoin Core with `dumptxoutset`)
-to a SQLite3 database. For more details like e.g. the created table name and schema, refer to the
-module docstring on top of the script, which is also contained in the command's `--help` output.
+### Miscellaneous
+- [Assets Attribution](assets-attribution.md)
+- [bitcoin.conf Configuration File](bitcoin-conf.md)
+- [CJDNS Support](cjdns.md)
+- [Files](files.md)
+- [Fuzz-testing](fuzzing.md)
+- [I2P Support](i2p.md)
+- [Init Scripts (systemd/upstart/openrc)](init.md)
+- [Managing Wallets](managing-wallets.md)
+- [Multisig Tutorial](multisig-tutorial.md)
+- [Offline Signing Tutorial](offline-signing-tutorial.md)
+- [P2P bad ports definition and list](p2p-bad-ports.md)
+- [PSBT support](psbt.md)
+- [Reduce Memory](reduce-memory.md)
+- [Reduce Traffic](reduce-traffic.md)
+- [Tor Support](tor.md)
+- [Transaction Relay Policy](policy/README.md)
+- [ZMQ](zmq.md)
+
+License
+---------------------
+Distributed under the [MIT software license](/COPYING).
