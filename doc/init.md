@@ -13,7 +13,7 @@ can be found in the contrib/init folder.
 Service User
 ---------------------------------
 
-All three Linux startup configurations assume the existence of a "bitcoin" user
+All three Linux startup configurations assume the existence of a "novacoin" user
 and group.  They must be created before attempting to use these scripts.
 The macOS configuration assumes bitcoind will be set up for the current user.
 
@@ -21,7 +21,7 @@ Configuration
 ---------------------------------
 
 Running bitcoind as a daemon does not require any manual configuration. You may
-set the `rpcauth` setting in the `bitcoin.conf` configuration file to override
+set the `rpcauth` setting in the `novacoin.conf` configuration file to override
 the default behaviour of using a special cookie for authentication.
 
 This password does not have to be remembered or typed as it is mostly used
@@ -55,17 +55,17 @@ Paths
 
 All three configurations assume several paths that might need to be adjusted.
 
-    Binary:              /usr/bin/bitcoind
-    Configuration file:  /etc/bitcoin/bitcoin.conf
-    Data directory:      /var/lib/bitcoind
-    PID file:            /var/run/bitcoind/bitcoind.pid (OpenRC and Upstart) or
-                         /run/bitcoind/bitcoind.pid (systemd)
-    Lock file:           /var/lock/subsys/bitcoind (CentOS)
+    Binary:              /usr/bin/novacoind
+    Configuration file:  /etc/novacoin/novacoin.conf
+    Data directory:      /var/lib/novacoind
+    PID file:            /var/run/novacoind/novacoind.pid (OpenRC and Upstart) or
+                         /run/novacoind/novacoind.pid (systemd)
+    Lock file:           /var/lock/subsys/novacoind (CentOS)
 
 The PID directory (if applicable) and data directory should both be owned by the
-bitcoin user and group. It is advised for security reasons to make the
-configuration file and data directory only readable by the bitcoin user and
-group. Access to bitcoin-cli and other bitcoind rpc clients can then be
+novacoin user and group. It is advised for security reasons to make the
+configuration file and data directory only readable by the novacoin user and
+group. Access to novacoin-cli and other novacoind rpc clients can then be
 controlled by group membership.
 
 NOTE: When using the systemd .service file, the creation of the aforementioned
@@ -76,10 +76,10 @@ bitcoin group to do so. This does not allow
 for the listing of files under the directory.
 
 NOTE: It is not currently possible to override `datadir` in
-`/etc/bitcoin/bitcoin.conf` with the current systemd, OpenRC, and Upstart init
+`/etc/novacoin/novacoin.conf` with the current systemd, OpenRC, and Upstart init
 files out-of-the-box. This is because the command line options specified in the
 init files take precedence over the configurations in
-`/etc/bitcoin/bitcoin.conf`. However, some init systems have their own
+`/etc/novacoin/novacoin.conf`. However, some init systems have their own
 configuration mechanisms that would allow for overriding the command line
 options specified in the init files (e.g. setting `BITCOIND_DATADIR` for
 OpenRC).
@@ -87,9 +87,9 @@ OpenRC).
 ### macOS
 
     Binary:              /usr/local/bin/bitcoind
-    Configuration file:  ~/Library/Application Support/Bitcoin/bitcoin.conf
-    Data directory:      ~/Library/Application Support/Bitcoin
-    Lock file:           ~/Library/Application Support/Bitcoin/.lock
+    Configuration file:  ~/Library/Application Support/Novacoin/novacoin.conf
+    Data directory:      ~/Library/Application Support/Novacoin
+    Lock file:           ~/Library/Application Support/Novacoin/.lock
 
 Installing Service Configuration
 -----------------------------------
@@ -132,8 +132,8 @@ setting the BITCOIND and FLAGS environment variables in the file
 
 ### macOS
 
-Copy org.bitcoin.bitcoind.plist into ~/Library/LaunchAgents. Load the launch agent by
-running `launchctl load ~/Library/LaunchAgents/org.bitcoin.bitcoind.plist`.
+Copy org.novacoin.novacoind.plist into ~/Library/LaunchAgents. Load the launch agent by
+running `launchctl load ~/Library/LaunchAgents/org.novacoin.novacoind.plist`.
 
 This Launch Agent will cause bitcoind to start whenever the user logs in.
 

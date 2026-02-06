@@ -91,7 +91,7 @@ For instance:
 
 Notification types correspond to message topics (details in next section). For instance,
 for the notification `-zmqpubhashtx` the topic is `hashtx`. These options can also be
-provided in bitcoin.conf.
+provided in novacoin.conf.
 
 ### Message format
 

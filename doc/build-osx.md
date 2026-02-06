@@ -181,45 +181,45 @@ You can also create a  `.zip` containing the `.app` bundle by running the follow
 cmake --build build --target deploy
 ```
 
-## Running Bitcoin Core
+## Running Novacoin Core
 
-Bitcoin Core should now be available at `./build/bin/bitcoind`.
-If you compiled support for the GUI, it should be available at `./build/bin/bitcoin-qt`.
+Novacoin Core should now be available at `./build/bin/novacoind`.
+If you compiled support for the GUI, it should be available at `./build/bin/novacoin-qt`.
 
-There is also a multifunction command line interface at `./build/bin/bitcoin`
-supporting subcommands like `bitcoin node`, `bitcoin gui`, `bitcoin rpc`, and
-others that can be listed with `bitcoin help`.
+There is also a multifunction command line interface at `./build/bin/novacoin`
+supporting subcommands like `novacoin node`, `novacoin gui`, `novacoin rpc`, and
+others that can be listed with `novacoin help`.
 
-The first time you run `bitcoind` or `bitcoin-qt`, it will start downloading the blockchain.
+The first time you run `novacoind` or `novacoin-qt`, it will start downloading the blockchain.
 This process could take many hours, or even days on slower than average systems.
 
 By default, blockchain and wallet data files will be stored in:
 
 ``` bash
-/Users/${USER}/Library/Application Support/Bitcoin/
+/Users/${USER}/Library/Application Support/Novacoin/
 ```
 
 Before running, you may create an empty configuration file:
 
 ```shell
-mkdir -p "/Users/${USER}/Library/Application Support/Bitcoin"
+mkdir -p "/Users/${USER}/Library/Application Support/Novacoin"
 
-touch "/Users/${USER}/Library/Application Support/Bitcoin/bitcoin.conf"
+touch "/Users/${USER}/Library/Application Support/Novacoin/novacoin.conf"
 
-chmod 600 "/Users/${USER}/Library/Application Support/Bitcoin/bitcoin.conf"
+chmod 600 "/Users/${USER}/Library/Application Support/Novacoin/novacoin.conf"
 ```
 
 You can monitor the download process by looking at the debug.log file:
 
 ```shell
-tail -f $HOME/Library/Application\ Support/Bitcoin/debug.log
+tail -f $HOME/Library/Application\ Support/Novacoin/debug.log
 ```
 
 ## Other commands:
 
 ```shell
-./build/bin/bitcoind -daemon      # Starts the bitcoin daemon.
-./build/bin/bitcoin-cli --help    # Outputs a list of command-line options.
-./build/bin/bitcoin-cli help      # Outputs a list of RPC commands when the daemon is running.
-./build/bin/bitcoin-qt -server # Starts the bitcoin-qt server mode, allows bitcoin-cli control
+./build/bin/novacoind -daemon      # Starts the novacoin daemon.
+./build/bin/novacoin-cli --help    # Outputs a list of command-line options.
+./build/bin/novacoin-cli help      # Outputs a list of RPC commands when the daemon is running.
+./build/bin/novacoin-qt -server # Starts the novacoin-qt server mode, allows novacoin-cli control
 ```
