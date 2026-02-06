@@ -1,79 +1,53 @@
-Bitcoin Core integration/staging tree
-=====================================
-
-https://bitcoincore.org
-
-For an immediately usable, binary version of the Bitcoin Core software, see
-https://bitcoincore.org/en/download/.
-
-What is Bitcoin Core?
+Repository Tools
 ---------------------
 
-Bitcoin Core connects to the Bitcoin peer-to-peer network to download and fully
-validate blocks and transactions. It also includes a wallet and graphical user
-interface, which can be optionally built.
+### [Developer tools](/contrib/devtools) ###
+Specific tools for developers working on this repository.
+Additional tools, including the `github-merge.py` script, are available in the [maintainer-tools](https://github.com/bitcoin-core/bitcoin-maintainer-tools) repository.
 
-Further information about Bitcoin Core is available in the [doc folder](/doc).
+### [Verify-Commits](/contrib/verify-commits) ###
+Tool to verify that every merge commit was signed by a developer using the `github-merge.py` script.
 
-License
--------
+### [Linearize](/contrib/linearize) ###
+Construct a linear, no-fork, best version of the blockchain.
 
-Bitcoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
-information or see https://opensource.org/license/MIT.
+### [Qos](/contrib/qos) ###
 
-Development Process
--------------------
+A Linux bash script that will set up traffic control (tc) to limit the outgoing bandwidth for connections to the Bitcoin network. This means one can have an always-on bitcoind instance running, and another local bitcoind/bitcoin-qt instance which connects to this node and receives blocks from it.
 
-The `master` branch is regularly built (see `doc/build-*.md` for instructions) and tested, but it is not guaranteed to be
-completely stable. [Tags](https://github.com/bitcoin/bitcoin/tags) are created
-regularly from release branches to indicate new official, stable release versions of Bitcoin Core.
+### [Seeds](/contrib/seeds) ###
+Utility to generate the pnSeed[] array that is compiled into the client.
 
-The https://github.com/bitcoin-core/gui repository is used exclusively for the
-development of the GUI. Its master branch is identical in all monotree
-repositories. Release branches and tags do not exist, so please do not fork
-that repository unless it is for development reasons.
+Build Tools and Keys
+---------------------
 
-The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md)
-and useful hints for developers can be found in [doc/developer-notes.md](doc/developer-notes.md).
+### Packaging ###
+The [Debian](/contrib/debian) subfolder contains the copyright file.
 
-Testing
--------
+All other packaging related files can be found in the [bitcoin-core/packaging](https://github.com/bitcoin-core/packaging) repository.
 
-Testing and code review is the bottleneck for development; we get more pull
-requests than we can review and test on short notice. Please be patient and help out by testing
-other people's pull requests, and remember this is a security-critical project where any mistake might cost people
-lots of money.
+### [MacDeploy](/contrib/macdeploy) ###
+Scripts and notes for Mac builds.
 
-### Automated Testing
+Test and Verify Tools
+---------------------
 
-Developers are strongly encouraged to write [unit tests](src/test/README.md) for new code, and to
-submit new unit tests for old code. Unit tests can be compiled and run
-(assuming they weren't disabled during the generation of the build system) with: `ctest`. Further details on running
-and extending unit tests can be found in [/src/test/README.md](/src/test/README.md).
+### [TestGen](/contrib/testgen) ###
+Utilities to generate test vectors for the data-driven Bitcoin tests.
 
-There are also [regression and integration tests](/test), written
-in Python.
-These tests can be run (if the [test dependencies](/test) are installed) with: `build/test/functional/test_runner.py`
-(assuming `build` is your build directory).
+### [Verify-Binaries](/contrib/verify-binaries) ###
+This script attempts to download and verify the signature file SHA256SUMS.asc from bitcoin.org.
 
-The CI (Continuous Integration) systems make sure that every pull request is tested on Windows, Linux, and macOS.
-The CI must pass on all commits before merge to avoid unrelated CI failures on new pull requests.
+Command Line Tools
+---------------------
 
-### Manual Quality Assurance (QA) Testing
+### [Completions](/contrib/completions) ###
+Shell completions for bash and fish.
 
-Changes should be tested by somebody other than the developer who wrote the
-code. This is especially important for large or high-risk changes. It is useful
-to add a test plan to the pull request description if testing the changes is
-not straightforward.
+UTXO Set Tools
+--------------
 
-Translations
-------------
-
-Changes to translations as well as new translations can be submitted to
-[Bitcoin Core's Transifex page](https://explore.transifex.com/bitcoin/bitcoin/).
-
-Translations are periodically pulled from Transifex and merged into the git repository. See the
-[translation process](doc/translation_process.md) for details on how this works.
-
-**Important**: We do not accept translation changes as GitHub pull requests because the next
-pull from Transifex would automatically overwrite them again.
+### [UTXO-to-SQLite](/contrib/utxo-tools/utxo_to_sqlite.py) ###
+This script converts a compact-serialized UTXO set (as generated by Bitcoin Core with `dumptxoutset`)
+to a SQLite3 database. For more details like e.g. the created table name and schema, refer to the
+module docstring on top of the script, which is also contained in the command's `--help` output.
